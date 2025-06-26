@@ -39,25 +39,25 @@ Uma aplicação web intuitiva para geração automática de justificativas funci
 
 ### Instalação
 
-# Clone o repositório
+#### Clone o repositório
 
 ```bash
 git clone https://github.com/Leocm123/justificaweb.git
 ```
 
-# Entre na pasta
+#### Entre na pasta
 
 ```bash
 cd justificaweb
 ```
 
-# Instale as dependências
+#### Instale as dependências
 
 ```bash
 npm install
 ```
 
-# Execute o projeto
+#### Execute o projeto
 
 ```bash
 npm run dev
