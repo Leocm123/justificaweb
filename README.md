@@ -61,63 +61,31 @@ npm install
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-### Build para produção
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-```shellscript
-npm run build
-```
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```shellscript
-npm start
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 🌐 Deploy
+## Learn More
 
-O projeto está configurado para deploy automático na Vercel:
+To learn more about Next.js, take a look at the following resources:
 
-- Cada push na branch `main` gera um novo deploy
-- Preview automático para outras branches
-- HTTPS e domínio personalizado inclusos
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 📋 Estrutura do projeto
+## Deploy on Vercel
 
-```plaintext
-justificaweb/
-├── app/                    # App Router do Next.js
-│   ├── globals.css        # Estilos globais
-│   ├── layout.tsx         # Layout principal
-│   └── page.tsx           # Página principal
-├── components/            # Componentes React
-│   ├── ui/               # Componentes shadcn/ui
-│   ├── theme-provider.tsx # Provider do tema
-│   └── preview-modal.tsx  # Modal de preview
-├── public/               # Arquivos estáticos
-│   └── images/          # Imagens oficiais
-└── lib/                 # Utilitários
-    └── utils.ts         # Funções auxiliares
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## 🎨 Características do PDF gerado
-
-- **Cabeçalho oficial** com brasão e logo da prefeitura
-- **Formatação padronizada** seguindo modelo oficial
-- **Checkboxes** para marcação de horários
-- **Seção de nomes** dos funcionários selecionados
-- **Data e motivo** detalhados para cada justificativa
-- **Observações adicionais** quando necessário
-
-
-## 📄 Licença
-
-Este projeto foi desenvolvido para uso interno da Prefeitura Municipal de Nova Esperança - PR.
-
-## 👨‍💻 Desenvolvedor
-
-Desenvolvido por Leonardo, utilizando a V0 AI, para automatizar e padronizar o processo de justificativas funcionais.
-
----
-
-© 2025 JustificaWeb - Automatização de Justificativas Funcionais
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
