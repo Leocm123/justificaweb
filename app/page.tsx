@@ -34,15 +34,14 @@ const funcionarios = [
 
 const justificativas = [
   "LOCALIDADE DISTANTE SEM TRANSPORTE",
-  "TRABALHO EM HORÁRIO DIRETO PARA ABRIR CASAS EM HORÁRIO DE ALMOÇO",
+  "TRABALHO EM HORÁRIO DIRETO PARA RECUPERAR IMÓVEIS DURANTE O PERÍODO DO ALMOÇO",
   "VISITA DOMICILIAR EM ÁREA RURAL DISTANTE",
-  "ATIVIDADE DE CAMPO EM LOCALIDADE SEM COBERTURA DE PONTO",
-  "TRABALHO EXTERNO PARA COMBATE A ENDEMIAS",
   "DESLOCAMENTO PARA ÁREA DE DIFÍCIL ACESSO",
-  "AÇÃO EDUCATIVA EM COMUNIDADE RURAL",
-  "INVESTIGAÇÃO EPIDEMIOLÓGICA EM CAMPO",
-  "BORRIFAÇÃO EM ÁREA DISTANTE",
-  "COLETA DE AMOSTRAS EM LOCALIDADE REMOTA",
+  "NÃO HOUVE REGISTRO",
+  "FOLGA",
+  "DELIMITAÇÃO DE FOCO NOS QUARTEIRÕES POSITIVOS (DF)",
+  "PONTO ESTRATÉGICO (PE)",
+  "LEVANTAMENTO DE ÍNDICE (LIRAA)",
 ]
 
 interface JustificativaItem {
@@ -500,7 +499,7 @@ export default function JustificaWeb() {
 
           {/* Footer */}
           <div className="text-center mt-12 text-gray-500 dark:text-gray-400 text-sm">
-            <p>© 2024 JustificaWeb - Automatização de Justificativas Funcionais</p>
+            <p>© 2025 JustificaWeb - Automatização de Justificativas Funcionais</p>
           </div>
         </div>
         <PreviewModal
