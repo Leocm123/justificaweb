@@ -215,7 +215,10 @@ export default function JustificaWeb() {
       const justificativasValidas = justificativasItems.filter((item) => item.tipo && item.data)
 
       justificativasValidas.forEach((item, index) => {
-        const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR")
+        // Corrigir problema de fuso horário - criar data no fuso horário local
+        const [year, month, day] = item.data.split('-').map(Number)
+        const dataLocal = new Date(year, month - 1, day) // month - 1 porque Date usa 0-indexed months
+        const dataFormatada = dataLocal.toLocaleDateString("pt-BR")
         const dataMotivo = `${dataFormatada} – ${item.tipo.toUpperCase()}`
 
         const dataLines = doc.splitTextToSize(dataMotivo, pageWidth - 2 * margin)
@@ -243,7 +246,11 @@ export default function JustificaWeb() {
       // Gerar nome do arquivo com base na primeira data
       const primeiraData =
         justificativasValidas.length > 0
-          ? new Date(justificativasValidas[0].data).toLocaleDateString("pt-BR").replace(/\//g, "-")
+          ? (() => {
+              const [year, month, day] = justificativasValidas[0].data.split('-').map(Number)
+              const dataLocal = new Date(year, month - 1, day)
+              return dataLocal.toLocaleDateString("pt-BR").replace(/\//g, "-")
+            })()
           : new Date().toLocaleDateString("pt-BR").replace(/\//g, "-")
 
       const nomeArquivo = `justificativa_ponto_${primeiraData}.pdf`
@@ -500,6 +507,12 @@ export default function JustificaWeb() {
           {/* Footer */}
           <div className="text-center mt-12 text-gray-500 dark:text-gray-400 text-sm">
             <p>© 2025 JustificaWeb - Automatização de Justificativas Funcionais</p>
+            <p className="mt-2 text-xs">
+              Desenvolvido por{" "}
+              <a href="https://www.linkedin.com/in/leonardo-camilotti-moreno-a59064276/" target="_blank" className="font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+                Leonardo Camilotti Moreno
+              </a>
+            </p>
           </div>
         </div>
         <PreviewModal

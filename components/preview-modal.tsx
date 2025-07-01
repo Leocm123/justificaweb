@@ -76,7 +76,10 @@ export function PreviewModal({
             </div>
             <div className="space-y-4">
               {justificativasItems.map((item, index) => {
-                const dataFormatada = new Date(item.data).toLocaleDateString("pt-BR")
+                // Corrigir problema de fuso horário - criar data no fuso horário local
+                const [year, month, day] = item.data.split('-').map(Number)
+                const dataLocal = new Date(year, month - 1, day) // month - 1 porque Date usa 0-indexed months
+                const dataFormatada = dataLocal.toLocaleDateString("pt-BR")
                 return (
                   <div key={item.id} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                     <div className="flex items-center gap-2 mb-2">
