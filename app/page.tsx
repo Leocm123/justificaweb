@@ -296,41 +296,44 @@ export default function JustificaWeb() {
         className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-8 px-4"
         suppressHydrationWarning
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
           {/* Header */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4 relative">
-              <FileText className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white">JustificaWeb</h1>
-
-              {/* Botão Dark Mode */}
-              <div className="absolute right-0 top-1/2 transform -translate-y-1/2">
-                {mounted ? (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-600 border-gray-200 dark:border-gray-600"
-                    suppressHydrationWarning
-                  >
-                    {theme === "dark" ? (
-                      <Sun className="h-4 w-4 text-yellow-500" />
-                    ) : (
-                      <Moon className="h-4 w-4 text-blue-600" />
-                    )}
-                  </Button>
-                ) : (
-                  <div className="w-8 h-8" />
-                )}
-              </div>
+          <div className="mb-8">
+            {/* Botão Dark Mode - Posicionado no topo direito */}
+            <div className="flex justify-end mb-4">
+              {mounted ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                  className="bg-white/80 dark:bg-gray-700/80 hover:bg-white dark:hover:bg-gray-600 border-gray-200 dark:border-gray-600"
+                  suppressHydrationWarning
+                >
+                  {theme === "dark" ? (
+                    <Sun className="h-4 w-4 text-yellow-500" />
+                  ) : (
+                    <Moon className="h-4 w-4 text-blue-600" />
+                  )}
+                </Button>
+              ) : (
+                <div className="w-8 h-8" />
+              )}
             </div>
-            <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">Gerador de Justificativas</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-              Automatize a criação de justificativas funcionais com praticidade e padronização
-            </p>
+
+            {/* Título e Descrição - Centralizados */}
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <FileText className="h-8 w-8 text-blue-600 dark:text-blue-400" />
+                <h1 className="text-4xl font-bold text-gray-900 dark:text-white">JustificaWeb</h1>
+              </div>
+              <p className="text-xl text-gray-600 dark:text-gray-300 font-medium">Gerador de Justificativas</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                Automatize a criação de justificativas funcionais com praticidade e padronização
+              </p>
+            </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
             {/* Seleção de Funcionários */}
             <Card
               className="shadow-lg border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm"
@@ -432,12 +435,18 @@ export default function JustificaWeb() {
                         value={item.tipo}
                         onValueChange={(value) => handleJustificativaChange(item.id, "tipo", value)}
                       >
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Selecione uma justificativa" />
+                        <SelectTrigger className="w-full text-left">
+                          <SelectValue placeholder="Selecione uma justificativa" className="truncate" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent 
+                          className="max-w-[calc(100vw-2rem)] sm:max-w-none min-w-[280px]"
+                          position="popper"
+                          side="bottom"
+                          align="start"
+                          sideOffset={4}
+                        >
                           {justificativas.map((justificativa, idx) => (
-                            <SelectItem key={idx} value={justificativa}>
+                            <SelectItem key={idx} value={justificativa} className="whitespace-normal break-words">
                               {justificativa}
                             </SelectItem>
                           ))}
