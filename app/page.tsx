@@ -20,10 +20,12 @@ const funcionarios = [
   { id: "dayana", nome: "Dayana Aparecida dos Santos Camargo" },
   { id: "dyoni", nome: "Dyoni Galani" },
   { id: "fernando", nome: "Fernando Faquinetti Amorim" },
+  { id: "greicieli", nome: "Greicieli Nascimento dos Santos" },
   { id: "iara", nome: "Iara Gonçalves Pereira" },
   { id: "janaina", nome: "Janaina Prieto de Assis" },
   { id: "jean", nome: "Jean Sales Prado" },
   { id: "joao", nome: "João Trindade de Oliveira" },
+  { id: "juliana", nome: "Juliana Gazola Fernandes" },
   { id: "julio", nome: "Julio Edson Fronza" },
   { id: "leila", nome: "Leila Cassia de Sousa Lemos" },
   { id: "leonardo", nome: "Leonardo Camilotti Moreno" },
@@ -33,15 +35,17 @@ const funcionarios = [
 ]
 
 const justificativas = [
-  "LOCALIDADE DISTANTE SEM TRANSPORTE",
+  "TRABALHO EM HORÁRIO DIRETO DEVIDO LOCALIDADE DISTANTE SEM TRANSPORTE",
   "TRABALHO EM HORÁRIO DIRETO PARA RECUPERAR IMÓVEIS DURANTE O PERÍODO DO ALMOÇO",
-  "VISITA DOMICILIAR EM ÁREA RURAL DISTANTE",
-  "DESLOCAMENTO PARA ÁREA DE DIFÍCIL ACESSO",
-  "NÃO HOUVE REGISTRO",
-  "FOLGA",
-  "DELIMITAÇÃO DE FOCO NOS QUARTEIRÕES POSITIVOS (DF)",
-  "PONTO ESTRATÉGICO (PE)",
-  "LEVANTAMENTO DE ÍNDICE (LIRAA)",
+  "TRABALHO EM HORÁRIO DIRETO DEVIDO A VISITA DOMICILIAR EM ÁREA RURAL DISTANTE",
+  "NÃO HOUVE REGISTRO DE BIOMETRIA",
+  "ESQUECEU DE REGISTRAR BIOMETRIA",
+  "FOLGA PERÍODO INTEGRAL",
+  "FOLGA MEIO PERÍODO",
+  "TRABALHO EM HORÁRIO DIRETO - RECOLHIMENTO DE ARMADILHAS OVITRAMPAS",
+  "TRABALHO EM HORÁRIO DIRETO - DELIMITAÇÃO DE FOCO NOS QUARTEIRÕES POSITIVOS (DF)",
+  "TRABALHO EM HORÁRIO DIRETO - PONTO ESTRATÉGICO (PE)",
+  "TRABALHO EM HORÁRIO DIRETO - LEVANTAMENTO DE ÍNDICE (LIRAA)",
 ]
 
 interface JustificativaItem {
