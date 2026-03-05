@@ -55,7 +55,7 @@ function SortableFuncionarioItem({
 }: {
   f: Funcionario
   editFunc: Funcionario | null
-  setEditFunc: (f: Funcionario | null) => void
+  setEditFunc: React.Dispatch<React.SetStateAction<Funcionario | null>>
   handleUpdateFuncionario: (e: React.FormEvent) => void
   handleDeleteFuncionario: (id: string) => void
   saving: string | null
@@ -150,7 +150,7 @@ function SortableJustificativaItem({
 }: {
   j: Justificativa
   editJust: Justificativa | null
-  setEditJust: (j: Justificativa | null) => void
+  setEditJust: React.Dispatch<React.SetStateAction<Justificativa | null>>
   handleUpdateJustificativa: (e: React.FormEvent) => void
   handleDeleteJustificativa: (id: string) => void
   saving: string | null
