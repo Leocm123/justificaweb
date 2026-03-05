@@ -3,6 +3,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthSessionProvider } from "@/components/session-provider"
 
 export const metadata: Metadata = {
   title: "JustificaWeb",
@@ -12,6 +13,12 @@ export const metadata: Metadata = {
     shortcut: '/favicon.svg',
     apple: '/favicon.svg',
   },
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 }
 
 export default function RootLayout({
@@ -28,7 +35,7 @@ export default function RootLayout({
           enableSystem 
           disableTransitionOnChange
         >
-          {children}
+          <AuthSessionProvider>{children}</AuthSessionProvider>
         </ThemeProvider>
       </body>
     </html>

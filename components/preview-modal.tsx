@@ -4,19 +4,15 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { FileText, Calendar, Users, MessageSquare } from 'lucide-react'
-
-interface JustificativaItem {
-  id: string
-  tipo: string
-  data: string
-}
+import { FileText, Calendar, Users, MessageSquare, ClipboardList } from "lucide-react"
+import type { JustificativaItem } from "@/lib/types"
+import type { Funcionario } from "@/lib/types"
 
 interface PreviewModalProps {
   isOpen: boolean
   onClose: () => void
   onConfirm: () => void
-  funcionarios: Array<{ id: string; nome: string }>
+  funcionarios: Funcionario[]
   funcionariosSelecionados: string[]
   justificativasItems: JustificativaItem[]
   observacoes: string
@@ -37,7 +33,7 @@ export function PreviewModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto dark:bg-gray-800">
+      <DialogContent className="w-[calc(100vw-2rem)] max-w-2xl max-h-[85vh] sm:max-h-[80vh] overflow-y-auto dark:bg-gray-800 p-4 sm:p-6">
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 dark:text-white">
             <FileText className="h-5 w-5" />
@@ -57,7 +53,7 @@ export function PreviewModal({
             </div>
             <div className="flex flex-wrap gap-2">
               {funcionariosSelecionadosNomes.map((nome, index) => (
-                <Badge key={index} variant="secondary" className="text-sm dark:bg-gray-600 dark:text-gray-200">
+                <Badge key={index} variant="secondary" className="text-xs sm:text-sm dark:bg-gray-600 dark:text-gray-200 break-words max-w-full">
                   {nome}
                 </Badge>
               ))}
@@ -69,7 +65,7 @@ export function PreviewModal({
           {/* Justificativas */}
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <Users className="h-4 w-4 text-blue-600" />
+              <ClipboardList className="h-4 w-4 text-blue-600" />
               <p className="font-medium text-sm text-gray-700 dark:text-white">
                 Justificativas ({justificativasItems.length})
               </p>
@@ -87,7 +83,7 @@ export function PreviewModal({
                       <p className="font-medium text-sm text-gray-700 dark:text-white">Justificativa {index + 1}</p>
                     </div>
                     <p className="text-sm font-semibold text-gray-900 dark:text-white mb-1">{dataFormatada}</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">{item.tipo}</p>
+                    <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed break-words">{item.tipo}</p>
                   </div>
                 )
               })}
@@ -111,11 +107,11 @@ export function PreviewModal({
           )}
         </div>
 
-        <div className="flex gap-3 pt-4">
-          <Button variant="outline" onClick={onClose} className="flex-1 bg-transparent">
+        <div className="flex flex-col-reverse sm:flex-row gap-3 pt-4">
+          <Button variant="outline" onClick={onClose} className="flex-1 bg-transparent min-h-[44px]">
             Cancelar
           </Button>
-          <Button onClick={onConfirm} className="flex-1 bg-blue-600 hover:bg-blue-700">
+          <Button onClick={onConfirm} className="flex-1 bg-blue-600 hover:bg-blue-700 min-h-[44px]">
             Confirmar e Gerar PDF
           </Button>
         </div>
