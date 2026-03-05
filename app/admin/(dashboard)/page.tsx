@@ -84,7 +84,7 @@ function SortableFuncionarioItem({
         <form onSubmit={handleUpdateFuncionario} className="flex-1 flex flex-col sm:flex-row gap-2 min-w-0">
           <Input
             value={editFunc.nome}
-            onChange={(e) => setEditFunc((p) => p && { ...p, nome: e.target.value })}
+            onChange={(e) => setEditFunc(editFunc ? { ...editFunc, nome: e.target.value } : null)}
             className="flex-1"
             autoFocus
           />
@@ -179,7 +179,7 @@ function SortableJustificativaItem({
         <form onSubmit={handleUpdateJustificativa} className="flex-1 flex flex-col sm:flex-row gap-2 min-w-0">
           <Input
             value={editJust.texto}
-            onChange={(e) => setEditJust((p) => p && { ...p, texto: e.target.value })}
+            onChange={(e) => setEditJust(editJust ? { ...editJust, texto: e.target.value } : null)}
             className="flex-1"
             autoFocus
           />
